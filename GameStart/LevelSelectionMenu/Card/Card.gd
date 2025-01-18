@@ -23,4 +23,5 @@ func _on_gui_input(event):
 				print("Level is unlocked")
 				
 				var world_scene = SceneManager.load_scene(Global.current_world.resource_path)
+				Global.current_level_seed = level_seed
 				SceneManager.switch_scene(world_scene)

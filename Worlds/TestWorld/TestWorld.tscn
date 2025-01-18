@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://dif0xbv3ed0na"]
 
-[ext_resource type="Script" path="res://Worlds/TestWorld/test_world.gd" id="1_b5nbi"]
+[ext_resource type="Script" path="res://Worlds/TestWorld/TestWorld.gd" id="1_b5nbi"]
 [ext_resource type="PackedScene" uid="uid://cnlya6bmoag15" path="res://Rocket/Rocket.tscn" id="1_mv3hx"]
-[ext_resource type="Script" path="res://Worlds/TestWorld/procgen-lvl.gd" id="2_b5fff"]
+[ext_resource type="Script" path="res://Worlds/TestWorld/ProceduralLevelGenerator.gd" id="2_b5fff"]
 [ext_resource type="Texture2D" uid="uid://df6p5iuk4clct" path="res://icon.svg" id="3_vbx0j"]
 [ext_resource type="PackedScene" uid="uid://cdxq0jc0sd2s1" path="res://UI/UI.tscn" id="6_hpjp7"]
 [ext_resource type="PackedScene" uid="uid://vwpse7jor7h6" path="res://lib/TimerSystem/TimerSystem.tscn" id="6_wpwbs"]

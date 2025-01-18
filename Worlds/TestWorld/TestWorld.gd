@@ -9,11 +9,17 @@ var is_level_completed = false
 
 func _ready():
 	level_seed = Global.current_level_seed
+
+	var tilemap_size := calculate_level_map_size(level_seed)
+	var distance := calculate_level_distance(level_seed)
 	
-	var points = generate_points_with_distance(tilemap.map_width, tilemap.map_height, 28)
+	var points = generate_points_with_distance(tilemap_size, tilemap_size, distance)
 	var start = points[0]
 	var end = points[1]
 	
+	tilemap.map_width = tilemap_size
+	tilemap.map_height = tilemap_size
+	tilemap.fill_percent += randf_range(-5, 5) # Add some randomness to the map generation
 	tilemap.generate_level(start, end)
 	
 	$Rocket.global_position = tilemap.map_to_local(start)
@@ -59,5 +65,28 @@ func _on_level_end_area_body_entered(body):
 		print("Completed level.")
 		
 		$UI.show_level_complete_menu(true)
-		Global.data[Global.current_world.resource_name] += 1
+		# increase it only if the curent level which is completed is the last level of the world
+		print (Global.current_level_seed)
+		print("and")
+		print(Global.data[Global.current_world.resource_name])
+		if Global.current_level_seed == Global.data[Global.current_world.resource_name]:
+			Global.data[Global.current_world.resource_name] += 1
 		Global.save_savegame()
+
+
+
+
+# Function to calcualt the size of generated map based on seed difficulty.
+func calculate_level_map_size(_level_seed: int) -> int:
+	var fseed := float(_level_seed)
+	# Now increase the size of map by 5% per seed increase
+	var map_size = 32 + (fseed * 1)
+	return map_size
+
+
+# Calculate distance as well based on seed difficulty.
+func calculate_level_distance(_level_seed: int) -> int:
+	var fseed := float(_level_seed)
+	# Now increase the distance of map by 5% per seed increase
+	var distance = 28 + (fseed * 1)
+	return distance
