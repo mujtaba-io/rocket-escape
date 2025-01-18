@@ -1,0 +1,25 @@
+start with main menu
+select start
+has list of worlds
+select world
+has list of levels
+select level
+
+level starts with full cover on screen
+it says "level X"
+and then radially remove cover
+and exposing level view
+
+now enable inputs
+
+
+on reaching end point
+start next level (does the process again)
+
+
+while in  level:
+	we have UI top pause (as in media palyers)
+	we have UI to open menu
+	while in menu:
+		we can go to main menu, we can close game
+		or we can re-start level...

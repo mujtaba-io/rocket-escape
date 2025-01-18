@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vwpse7jor7h6"]
+
+[ext_resource type="Script" path="res://lib/TimerSystem/TimerSystem.gd" id="1_4qkut"]
+
+[node name="TimerSystem" type="Node"]
+script = ExtResource("1_4qkut")

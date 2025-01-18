@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdxq0jc0sd2s1"]
+
+[ext_resource type="Script" path="res://UI/UI.gd" id="1_ew35c"]
+[ext_resource type="Texture2D" uid="uid://c112c0r2u6tlk" path="res://UI/assets/meter/meter_empty.png" id="1_wmhcc"]
+[ext_resource type="Texture2D" uid="uid://c74oc0qmgonno" path="res://UI/assets/meter/meter_filler.png" id="2_7tfbn"]
+[ext_resource type="Texture2D" uid="uid://df6p5iuk4clct" path="res://icon.svg" id="3_kxbls"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_ew35c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 35.0
+offset_right = 216.0
+offset_bottom = 1035.0
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+value = 50.0
+fill_mode = 2
+texture_under = ExtResource("1_wmhcc")
+texture_progress = ExtResource("2_7tfbn")
+tint_progress = Color(0.853719, 5.41471e-06, 7.70092e-07, 1)
+
+[node name="FuelBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 63.0
+offset_right = 216.0
+offset_bottom = 1063.0
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+value = 50.0
+fill_mode = 2
+texture_under = ExtResource("1_wmhcc")
+texture_progress = ExtResource("2_7tfbn")
+tint_progress = Color(0.124141, 0.0927052, 0.100741, 1)
+
+[node name="TimeLeftLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 22.0
+offset_right = 518.0
+offset_bottom = 45.0
+text = "Time Left"
+
+[node name="leftbtn" type="TouchScreenButton" parent="Control"]
+position = Vector2(88, 358)
+texture_normal = ExtResource("3_kxbls")
+texture_pressed = ExtResource("3_kxbls")
+passby_press = true
+action = "ui_left"
+visibility_mode = 1
+
+[node name="rightbtn" type="TouchScreenButton" parent="Control"]
+position = Vector2(747, 360)
+texture_normal = ExtResource("3_kxbls")
+texture_pressed = ExtResource("3_kxbls")
+passby_press = true
+action = "ui_right"
+visibility_mode = 1

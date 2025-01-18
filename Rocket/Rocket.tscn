@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://cnlya6bmoag15"]
+
+[ext_resource type="Script" path="res://Rocket/Rocket.gd" id="1_f51i1"]
+[ext_resource type="Texture2D" uid="uid://emja4hjtxw84" path="res://Rocket/assets/Animated_Exhaust_pixel_Pack_Free/Exhaust_01/exhaust_01_spritesheet.png" id="2_ge5us"]
+[ext_resource type="Texture2D" uid="uid://djhmrimngctn1" path="res://Rocket/assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Damaged.png" id="3_ky83n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu3v7"]
+atlas = ExtResource("2_ge5us")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjl12"]
+atlas = ExtResource("2_ge5us")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr7hb"]
+atlas = ExtResource("2_ge5us")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feb7y"]
+atlas = ExtResource("2_ge5us")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6xv3"]
+atlas = ExtResource("2_ge5us")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3sab"]
+atlas = ExtResource("2_ge5us")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64gny"]
+atlas = ExtResource("2_ge5us")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umkd8"]
+atlas = ExtResource("2_ge5us")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wi4sa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu3v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjl12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr7hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feb7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6xv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3sab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64gny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umkd8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Rocket" type="RigidBody2D" node_paths=PackedStringArray("left_nozzle_marker", "right_nozzle_marker", "left_thrust_animation", "right_thrust_animation")]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 8
+script = ExtResource("1_f51i1")
+left_nozzle_marker = NodePath("LeftMarker2D")
+right_nozzle_marker = NodePath("RightMarker2D")
+left_thrust_animation = NodePath("LeftMarker2D/AnimatedSprite2D")
+right_thrust_animation = NodePath("RightMarker2D/AnimatedSprite2D")
+
+[node name="RightMarker2D" type="Marker2D" parent="."]
+position = Vector2(22.5, 12)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RightMarker2D"]
+texture_filter = 3
+position = Vector2(0, 30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_wi4sa")
+frame_progress = 0.558168
+
+[node name="LeftMarker2D" type="Marker2D" parent="."]
+position = Vector2(-22.5, 12)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LeftMarker2D"]
+texture_filter = 3
+position = Vector2(0, 30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_wi4sa")
+frame_progress = 0.0996363
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(2, 2)
+texture = ExtResource("3_ky83n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(0, -13, -15, 8, 0, 12, 15, 8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

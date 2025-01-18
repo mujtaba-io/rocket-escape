@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://b737vgydsq36x"]
+
+[ext_resource type="PackedScene" uid="uid://c8uslmq0co1ts" path="res://GameStart/WorldSelectionMenu/Card/Card.tscn" id="1_k7hk1"]
+[ext_resource type="PackedScene" uid="uid://dif0xbv3ed0na" path="res://Worlds/TestWorld/TestWorld.tscn" id="2_i0jsb"]
+[ext_resource type="PackedScene" uid="uid://3ltwvdbyfeqy" path="res://GameStart/LevelSelectionMenu/LevelSelectionMenu.tscn" id="3_78b3r"]
+
+[node name="WorldSelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Card" parent="ScrollContainer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_k7hk1")]
+layout_mode = 2
+world_scene = ExtResource("2_i0jsb")
+level_select_scene = ExtResource("3_78b3r")

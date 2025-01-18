@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxh5nwgdlyf2q"]
+
+[ext_resource type="Script" path="res://GameStart/LevelSelectionMenu/Card/Card.gd" id="1_h0dp4"]
+[ext_resource type="Texture2D" uid="uid://cgttkh04kep42" path="res://icon.svg" id="2_jevxo"]
+
+[node name="Card" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+script = ExtResource("1_h0dp4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_jevxo")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

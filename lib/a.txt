@@ -1,0 +1,6 @@
+Everything that goes into the library is considered a global dependency
+for all other modules.
+
+All library modules are used across different parts of the game.
+
+This acts as a "library", such as C standard library.

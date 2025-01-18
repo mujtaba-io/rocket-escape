@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8uslmq0co1ts"]
+
+[ext_resource type="Texture2D" uid="uid://cgttkh04kep42" path="res://icon.svg" id="1_re7s2"]
+[ext_resource type="Script" path="res://GameStart/WorldSelectionMenu/Card/Card.gd" id="1_toydm"]
+
+[node name="WorldSelectionMenuCard" type="Button"]
+offset_right = 136.0
+offset_bottom = 182.0
+text = "World 1"
+icon = ExtResource("1_re7s2")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("1_toydm")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
