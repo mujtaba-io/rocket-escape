@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdxq0jc0sd2s1"]
+[gd_scene load_steps=7 format=3 uid="uid://cdxq0jc0sd2s1"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_ew35c"]
 [ext_resource type="Texture2D" uid="uid://c112c0r2u6tlk" path="res://UI/assets/meter/meter_empty.png" id="1_wmhcc"]
 [ext_resource type="Texture2D" uid="uid://c74oc0qmgonno" path="res://UI/assets/meter/meter_filler.png" id="2_7tfbn"]
 [ext_resource type="Texture2D" uid="uid://df6p5iuk4clct" path="res://icon.svg" id="3_kxbls"]
+[ext_resource type="PackedScene" uid="uid://chy3xf76cfupy" path="res://Worlds/LevelCompleteMenu/LevelCompleteMenu.tscn" id="5_f60wh"]
+[ext_resource type="PackedScene" uid="uid://cxamkp5a4xc4s" path="res://Worlds/PauseMenu/PauseMenu.tscn" id="6_gjdqx"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_ew35c")
@@ -46,14 +48,14 @@ tint_progress = Color(0.124141, 0.0927052, 0.100741, 1)
 
 [node name="TimeLeftLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 22.0
-offset_right = 518.0
-offset_bottom = 45.0
+offset_left = 524.0
+offset_top = 33.0
+offset_right = 597.0
+offset_bottom = 56.0
 text = "Time Left"
 
 [node name="leftbtn" type="TouchScreenButton" parent="Control"]
-position = Vector2(88, 358)
+position = Vector2(94, 480)
 texture_normal = ExtResource("3_kxbls")
 texture_pressed = ExtResource("3_kxbls")
 passby_press = true
@@ -61,9 +63,27 @@ action = "ui_left"
 visibility_mode = 1
 
 [node name="rightbtn" type="TouchScreenButton" parent="Control"]
-position = Vector2(747, 360)
+position = Vector2(897, 470)
 texture_normal = ExtResource("3_kxbls")
 texture_pressed = ExtResource("3_kxbls")
 passby_press = true
 action = "ui_right"
 visibility_mode = 1
+
+[node name="LevelCompleteMenu" parent="Control" instance=ExtResource("5_f60wh")]
+visible = false
+layout_mode = 1
+
+[node name="PauseMenu" parent="Control" instance=ExtResource("6_gjdqx")]
+visible = false
+layout_mode = 1
+
+[node name="Pause" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 28.0
+offset_right = 510.0
+offset_bottom = 59.0
+text = "Pause"
+
+[connection signal="pressed" from="Control/Pause" to="." method="_on_pause_pressed"]

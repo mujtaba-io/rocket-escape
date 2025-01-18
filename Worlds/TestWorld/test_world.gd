@@ -58,4 +58,6 @@ func _on_level_end_area_body_entered(body):
 		is_level_completed = true
 		print("Completed level.")
 		
-		#$UI/InGameMenu.visible = true
+		$UI.show_level_complete_menu(true)
+		Global.data[Global.current_world.resource_name] += 1
+		Global.save_savegame()

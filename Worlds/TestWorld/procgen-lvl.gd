@@ -7,9 +7,11 @@ extends TileMap
 @export var room_radius := 4  # Radius of open spaces around start/end
 
 # Map settings
-@export var map_width := 32
-@export var map_height := 32
+@export var map_width := 40
+@export var map_height := 40
 @export var max_generation_attempts := 16  # Maximum attempts to generate a valid map
+
+@export var should_be_closed := true
 
 # Tile IDs
 const WALL_TILE := 0
@@ -49,6 +51,10 @@ func generate_level(start: Vector2, end: Vector2) -> void:
 	
 	if !valid_map:
 		push_error("Failed to generate a valid map after %d attempts" % max_generation_attempts)
+	
+	# Force walls on the map edges
+	if should_be_closed:
+		_force_walls()
 	
 	# Apply the final map to tilemap
 	_apply_to_tilemap()
@@ -139,6 +145,23 @@ func _is_valid_empty_pos(pos: Vector2) -> bool:
 
 func _get_point_id(pos: Vector2) -> int:
 	return int(pos.x + pos.y * map_width)
+
+
+# Force walls on the map edges
+func _force_walls() -> void:
+	if not should_be_closed:
+		return
+		
+	# Create walls on top and bottom edges
+	for x in range(map_width):
+		_map[Vector2(x, 0)] = true              # Top wall
+		_map[Vector2(x, map_height - 1)] = true # Bottom wall
+	
+	# Create walls on left and right edges
+	for y in range(map_height):
+		_map[Vector2(0, y)] = true              # Left wall
+		_map[Vector2(map_width - 1, y)] = true  # Right wall
+
 
 func _apply_to_tilemap() -> void:
 	for x in range(map_width):
