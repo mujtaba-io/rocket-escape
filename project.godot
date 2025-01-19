@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 Global="*res://lib/Global/Global.tscn"
 SceneManager="*res://lib/SceneManager/SceneManager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -168,6 +168,6 @@ func _apply_to_tilemap() -> void:
 		for y in range(map_height):
 			var pos := Vector2(x, y)
 			if _map[pos]:
-				set_cell(0, pos, 0, Vector2i(0, 0))  # Set wall tile
+				set_cell(0, pos, 0, Vector2i(0, randi_range(0, 1)))  # Set wall tile
 			else:
 				set_cell(0, pos, -1)  # Clear tile (empty space)

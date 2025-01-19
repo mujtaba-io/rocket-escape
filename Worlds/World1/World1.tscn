@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dif0xbv3ed0na"]
+[gd_scene load_steps=14 format=3 uid="uid://ccm6cy6wkitdx"]
 
-[ext_resource type="Script" path="res://Worlds/TestWorld/TestWorld.gd" id="1_b5nbi"]
-[ext_resource type="PackedScene" uid="uid://cnlya6bmoag15" path="res://Rocket/Rocket.tscn" id="1_mv3hx"]
-[ext_resource type="Script" path="res://Worlds/ProceduralLevelGenerator.gd" id="2_b5fff"]
-[ext_resource type="Texture2D" uid="uid://df6p5iuk4clct" path="res://icon.svg" id="3_vbx0j"]
-[ext_resource type="PackedScene" uid="uid://cdxq0jc0sd2s1" path="res://UI/UI.tscn" id="6_hpjp7"]
-[ext_resource type="PackedScene" uid="uid://vwpse7jor7h6" path="res://lib/TimerSystem/TimerSystem.tscn" id="6_wpwbs"]
+[ext_resource type="Script" path="res://Worlds/TestWorld/TestWorld.gd" id="1_hwybq"]
+[ext_resource type="PackedScene" uid="uid://cnlya6bmoag15" path="res://Rocket/Rocket.tscn" id="2_1ulop"]
+[ext_resource type="Texture2D" uid="uid://dehlxuqdgalbn" path="res://Worlds/World1/assets/Mine/upscaled_basic-white.png" id="3_5kruc"]
+[ext_resource type="Texture2D" uid="uid://df6p5iuk4clct" path="res://icon.svg" id="3_8bax1"]
+[ext_resource type="Script" path="res://Worlds/ProceduralLevelGenerator.gd" id="4_e8145"]
+[ext_resource type="PackedScene" uid="uid://cdxq0jc0sd2s1" path="res://UI/UI.tscn" id="5_52k7f"]
+[ext_resource type="PackedScene" uid="uid://vwpse7jor7h6" path="res://lib/TimerSystem/TimerSystem.tscn" id="6_k32mu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s78ok"]
 size = Vector2(1618, 326)
@@ -16,92 +17,31 @@ size = Vector2(1050, 1100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcapf"]
 size = Vector2(1190, 682)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hkwme"]
-texture = ExtResource("3_vbx0j")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_05rjn"]
+texture = ExtResource("3_5kruc")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
 0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="TileSet" id="TileSet_42sty"]
+[sub_resource type="TileSet" id="TileSet_1aphv"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_hkwme")
+sources/0 = SubResource("TileSetAtlasSource_05rjn")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q47ix"]
 size = Vector2(43, 43)
 
-[node name="TestWorld" type="Node2D"]
-script = ExtResource("1_b5nbi")
+[node name="World1" type="Node2D"]
+script = ExtResource("1_hwybq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -22.0
-offset_top = -15.0
-offset_right = 987.0
-offset_bottom = 554.0
-color = Color(0.0119319, 0.00827667, 0.0477899, 1)
+offset_left = -8448.0
+offset_top = -7680.0
+offset_right = 35586.0
+offset_bottom = 34793.0
+color = Color(0.0684548, 0.0726014, 0.105991, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -124,29 +64,29 @@ shape = SubResource("RectangleShape2D_vcapf")
 position = Vector2(-602, 157)
 shape = SubResource("RectangleShape2D_ecmek")
 
-[node name="Rocket" parent="." instance=ExtResource("1_mv3hx")]
+[node name="Rocket" parent="." instance=ExtResource("2_1ulop")]
 position = Vector2(475, 269)
 
 [node name="Camera2D" type="Camera2D" parent="Rocket"]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_42sty")
+tile_set = SubResource("TileSet_1aphv")
 format = 2
-script = ExtResource("2_b5fff")
+script = ExtResource("4_e8145")
 
 [node name="LevelEndArea" type="Area2D" parent="."]
 
 [node name="EndMarker" type="Sprite2D" parent="LevelEndArea"]
 texture_filter = 3
 scale = Vector2(0.36, 0.36)
-texture = ExtResource("3_vbx0j")
+texture = ExtResource("3_8bax1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_q47ix")
 
-[node name="UI" parent="." instance=ExtResource("6_hpjp7")]
+[node name="UI" parent="." instance=ExtResource("5_52k7f")]
 
-[node name="TimerSystem" parent="." instance=ExtResource("6_wpwbs")]
+[node name="TimerSystem" parent="." instance=ExtResource("6_k32mu")]
 
 [connection signal="body_entered" from="LevelEndArea" to="." method="_on_level_end_area_body_entered"]
